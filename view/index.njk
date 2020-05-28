@@ -1,0 +1,44 @@
+{% extends "layouts/app.njk" %}
+{% block content %}
+  <section class="plans">
+    <div class="container">
+
+      <div class="price-options">
+        <h1 class="title">
+          Our Pricing
+        </h1>
+      </div>
+
+      <div class="card-container">
+
+        {% for plan in plans %}
+          <div class="card" id="{{ plan.name }}">
+            <div class="card-header">
+              <h5>
+                {{ plan.name }}
+              </h5>
+              <h1>
+                <span class="dollar">$</span>{{ plan.price }}
+              </h1>
+            </div>
+            <div class="card-body">
+              <div class="list">
+                <ul>
+
+                  <li>{{ plan.description.l1 }}</li>
+                  <li>{{ plan.description.l2 }}</li>
+                  <li>{{ plan.description.l3 }}</li>
+
+                </ul>
+              </div>
+            </div>
+            <div class="card-footer">
+              <button class="btn btn-outline-primary">Learn More</button>
+            </div>
+          </div>
+        {% endfor %}
+      
+      </div>
+    </div>
+  </section>
+{% endblock content %}
